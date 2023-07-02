@@ -1,0 +1,13 @@
+# Error 404 Redirection
+ErrorDocument 404 http://localhost/deemerweb/page-not-found
+
+# Masquer les terminaisons .html
+RewriteEngine On
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [NC,L]
+
+RewriteRule ^donation$ redirect/donation.html
+RewriteRule ^invite$ redirect/invite.html
+RewriteRule ^support$ redirect/support.html
